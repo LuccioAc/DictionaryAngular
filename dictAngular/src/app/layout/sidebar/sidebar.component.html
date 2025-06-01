@@ -1,0 +1,24 @@
+<aside class="sidebar">
+  <nav>
+    <a routerLink="/home">Inicio</a><br>
+    <a routerLink="/palabras">Buscar Palabras</a><br>
+
+    <div *ngIf="isAdmin()">
+      <hr>
+      <strong>ADMINISTRADOR</strong><br>
+      <nav *ngIf="isLoggedIn()">
+        <ul>
+          <li *ngIf="isAdmin()">
+            <a routerLink="/admin/incidentes">Lista Incidentes</a>
+          </li>
+          <li *ngIf="isAdmin()">
+            <a routerLink="/admin/usuarios">Lista de Usuarios</a>
+          </li>
+          <li *ngIf="isAdmin()">
+            <a routerLink="/admin/full-words">Full Palabras</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </nav>
+</aside>

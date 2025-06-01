@@ -1,0 +1,64 @@
+/* Layout general */
+.layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  background-color: #222;
+  color: #fff;
+  height: 50px;
+  padding: 0 1rem;
+  justify-content: space-between;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #f2f2f2;
+  height: calc(100vh - 50px);
+  padding: 1rem;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.content {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: #fafafa;
+  height: calc(100vh - 50px);
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal-body {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 300px;
+  max-width: 90%;
+}
+
+.modal-body form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-body input {
+  margin-bottom: 10px;
+  padding: 6px;
+}

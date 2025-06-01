@@ -1,0 +1,19 @@
+<div class="modal-content">
+  <h2>Editar Usuario</h2>
+  <form [formGroup]="editUserForm" (ngSubmit)="onSubmit()">
+    <label for="nameusr">Nombre de Usuario:</label>
+    <input id="nameusr" formControlName="nameusr" type="text">
+
+    <label for="passw">Contraseña:</label>
+    <input id="passw" formControlName="passw" type="password">
+
+    <label for="rol">Rol:</label>
+    <select id="rol" formControlName="rol">
+      <option [value]="true">Admin</option>
+      <option [value]="false">Usuario</option>
+    </select>
+
+    <button type="submit" [disabled]="editUserForm.invalid">Guardar Cambios</button>
+    <button type="button" (click)="close.emit()">Cancelar</button>
+  </form>
+</div>

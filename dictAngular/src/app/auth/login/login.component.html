@@ -1,0 +1,5 @@
+<form (ngSubmit)="login()">
+  <input [(ngModel)]="codeusr" name="codeusr" placeholder="Código de Usuario" required>
+  <input [(ngModel)]="passw" name="passw" placeholder="Contraseña" type="password" required>
+  <button class="btn btn-lg btn-success" type="submit" [disabled]="loading">Iniciar Sesión</button>
+</form>

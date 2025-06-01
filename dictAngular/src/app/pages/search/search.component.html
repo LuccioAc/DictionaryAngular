@@ -1,0 +1,16 @@
+<div class="search-container">
+  <input class="search-input" [(ngModel)]="query" (input)="search()" placeholder="Buscar palabra..." />
+</div>
+
+<div class="results-container" *ngIf="results.length > 0">
+  <p>Resultados:</p>
+  <ul>
+    <li *ngFor="let item of results" (click)="selectWord(item.idword)">
+      <span class="word-item">{{ item.word }}</span>
+    </li>
+  </ul>
+</div>
+
+<!-- Modal -->
+<div class="backdrop" *ngIf="selectedId" (click)="closeDetail()"></div>
+<app-word-detail *ngIf="selectedId" [wordId]="selectedId"></app-word-detail>

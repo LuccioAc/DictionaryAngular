@@ -1,0 +1,38 @@
+<app-topbar/>
+
+<div class="layout">
+  <app-sidebar *ngIf="showSidebar()"></app-sidebar>
+
+  <div class="content">
+    <app-search/>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" *ngIf="showModal()">
+  <div class="modal-body">
+    <ng-container *ngIf="isLogin(); else registerBlock">
+      <app-login/>
+      <a href="#" (click)="ui.switchModalMode()">¿No tienes cuenta? Regístrate</a>
+    </ng-container>
+    <ng-template #registerBlock>
+      <app-register/>
+    </ng-template>
+    <button (click)="ui.closeModal()">Cerrar</button>
+  </div>
+</div>
+
+<!-- MODAL DE INCIDENTE GLOBAL -->
+<app-incident-modal
+  *ngIf="ui.incidentModalVisible()"
+  [visible]="ui.incidentModalVisible()"
+  (close)="ui.closeIncidentModal()" />
+
+<!-- BOTÓN GLOBAL FLOTANTE PARA CREAR INCIDENTE -->
+<button
+  *ngIf="auth.isLoggedIn()"
+  (click)="ui.showIncidentModal()"
+  style="position: fixed; bottom: 2rem; right: 2rem; background: red; color: white; border: none; border-radius: 50%; width: 3rem; height: 3rem; font-size: 1.5rem;">
+  !
+</button>

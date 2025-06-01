@@ -1,0 +1,35 @@
+<div class="container">
+  <h2>Lista de Palabras</h2>
+  <ul>
+    <li *ngFor="let palabra of palabras" (click)="onWordSelect(palabra.word)">
+      {{ palabra.word }}
+    </li>
+  </ul>
+
+  <h2>Usos de la Palabra Seleccionada</h2>
+  <div *ngIf="usos.length > 0">
+    <ul>
+      <li *ngFor="let uso of usos">
+        {{ uso.Wuse }} - {{ uso.Descrip }}
+        <button (click)="deleteUsage(uso.Iduse)">Eliminar</button>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="newUsage.word">
+    <h2>Crear Nuevo Uso</h2>
+<div>
+  <label for="wuse">Uso:</label>
+  <input id="wuse" [(ngModel)]="newUsage.wuse" placeholder="Escribe el uso">
+</div>
+<div>
+  <label for="descrip">Descripción:</label>
+  <input id="descrip" [(ngModel)]="newUsage.descrip" placeholder="Escribe la descripción">
+</div>
+<button (click)="createUsage()">Crear Uso</button>
+  </div>
+
+  <div *ngIf="!newUsage.word">
+    <h3>Seleccione una palabra para ver sus usos</h3>
+  </div>
+</div>

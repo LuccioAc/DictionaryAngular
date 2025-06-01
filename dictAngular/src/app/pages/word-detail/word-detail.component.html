@@ -1,0 +1,34 @@
+<div class="word-modal" *ngIf="wordData">
+  <h2>{{ wordData.word }}</h2>
+  <p><strong>Significado:</strong> {{ wordData.meaning }}</p>
+
+  <div *ngIf="wordData.sinonimos?.length">
+    <strong>Sinónimos:</strong>
+    <ul>
+      <li *ngFor="let s of wordData.sinonimos">{{ s.word }}</li>
+    </ul>
+  </div>
+
+  <div *ngIf="wordData.antonimos?.length">
+    <strong>Antónimos:</strong>
+    <ul>
+      <li *ngFor="let a of wordData.antonimos">{{ a.word }}</li>
+    </ul>
+  </div>
+
+  <div *ngIf="wordData.similares?.length">
+    <strong>Similares:</strong>
+    <ul>
+      <li *ngFor="let sm of wordData.similares">{{ sm.word }}</li>
+    </ul>
+  </div>
+
+  <div *ngIf="wordData.usos?.length">
+    <strong>Usos:</strong>
+    <ul>
+      <li *ngFor="let uso of wordData.usos">
+        <span>{{ uso.wuse }}:</span> {{ uso.descrip }}
+      </li>
+    </ul>
+  </div>
+</div>

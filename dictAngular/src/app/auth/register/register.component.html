@@ -1,0 +1,18 @@
+<div *ngIf="!generatedCodeusr">
+  <h2>Registro</h2>
+  <form (ngSubmit)="register()">
+    <label for="nameusr">Nombre:</label>
+    <input id="nameusr" [(ngModel)]="nameusr" name="nameusr" required>
+    <br>
+    <label for="passw">Contraseña:</label>
+    <input id="passw" [(ngModel)]="passw" name="passw" type="password" required>
+    <br>
+    <button class="btn btn-lg btn-success" type="submit">Registrarse</button>
+  </form>
+</div>
+
+<div *ngIf="generatedCodeusr" style="margin-top: 1rem;">
+  <strong>¡Registro exitoso!</strong><br>
+  Tu <code>Código de Usuario</code> para iniciar sesión es: <strong>{{ generatedCodeusr }}</strong><br>
+  <a href="#" (click)="goToLogin()">Iniciar sesión</a>
+</div>

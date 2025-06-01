@@ -1,0 +1,30 @@
+<h2>Lista de Usuarios</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Usuario</th>
+      <th>CodeUsr</th>
+      <th>Rol</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.idusr }}</td>
+      <td>{{ user.nameusr }}</td>
+      <td>{{ user.codeusr }}</td>
+      <td>{{ user.rol ? 'Admin' : 'Usuario' }}</td>
+      <td>
+        <button (click)="editUser(user)">⚙️ Editar</button>
+        <button (click)="deleteUser(user)">🗑️ Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Modal para editar usuario -->
+<app-edit-user *ngIf="selectedUser" 
+               [user]="selectedUser" 
+               (close)="closeEditForm()"></app-edit-user>

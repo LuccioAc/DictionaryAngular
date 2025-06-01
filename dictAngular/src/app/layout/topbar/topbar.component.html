@@ -1,0 +1,12 @@
+<header class="topbar">
+  <button (click)="ui.toggleSidebar()">☰</button>
+  <div class="spacer"></div>
+
+  <ng-container *ngIf="!isLoggedIn(); else logoutBtn">
+    <button (click)="ui.showModal('login')">Login</button>
+  </ng-container>
+
+  <ng-template #logoutBtn>
+    <button (click)="logout()">Logout</button>
+  </ng-template>
+</header>
